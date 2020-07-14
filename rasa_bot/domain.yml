@@ -1,0 +1,187 @@
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet
+- goodbye
+- affirm
+- deny
+- mood_great
+- mood_unhappy
+- bot_challenge
+- searchBestproperty
+- give_pincode
+- flat
+- builder_floor
+- house
+- plot
+- ask_name
+- ask_email
+- ask_budget
+- ask_budget_sell
+- forty_days
+- ninty_days
+- three_months
+- six_months
+- buy
+- sell
+- flat_sell
+- house_sell
+- plot_sell
+- builder_floor_sell
+- searchBestproperty_sell
+
+responses:
+  utter_greet:
+  - buttons:
+    - payload: /buy
+      title: I'm Buying.
+    - payload: /sell
+      title: I'm Selling.
+    text: "Hi there - welcome to our free Realtor match service.\n
+          With just a few questions, we'll match you to one of the best local realtors in your area .\n"
+  
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+ 
+  utter_ask_location:
+  - text: In which location would you like me to search the property?
+  - text: Tell me your location and I will show you all the property.
+  - text: Please provide me with the location to find property for you.
+  - text: Provide me with location to suggest the property.
+  utter_ask_location_sell:
+  - text: In which location would you like me to sell the property?
+  - text: Tell me your location and I will list your property.
+  - text: Please provide me with the location to list property for you.
+  - text: Provide me with location to put the property for sale .
+ 
+  utter_ask_pincode:
+  - text: "Your pincode is?"
+  - text: "What is your pincode?"
+  - text: "Please enter  your pincode."
+  - text: "Please tell me your pincode."
+  utter_buy:
+  - buttons:
+    - payload: /house
+      title: House
+    - payload: /plot
+      title: Plot
+    - payload: /flat
+      title: Flat 
+    - payload: /builder_floor
+      title: Builder Floor   
+    text: What kind of property do you want to buy?
+  utter_sell:
+  - buttons:
+    - payload: /house_sell
+      title: House
+    - payload: /plot_sell
+      title: Plot
+    - payload: /flat_sell
+      title: Flat 
+    - payload: /builder_floor_sell
+      title: Builder Floor   
+    text: What kind of property do you want to sell or list?
+  utter_budget:
+    - text: Ok and what's your rough budget for a home?
+  utter_sell_budget:
+    - text: Ok and what's your Asking Price for Property?
+  utter_days:
+  - buttons:
+    - payload: /forty_days
+      title: 0-45 Days
+    - payload: /ninty_days
+      title: 45-90 Days
+    - payload: /three_months
+      title: 3-6 Months
+    - payload: /six_months
+      title: Longer than 6 months  
+    text: And how quickly are you looking to buy a place? 
+  utter_days_sell:
+  - buttons:
+    - payload: /forty_days
+      title: 0-45 Days
+    - payload: /ninty_days
+      title: 45-90 Days
+    - payload: /three_months
+      title: 3-6 Months
+    - payload: /six_months
+      title: Longer than 6 months  
+    text: And how quickly are you looking to sell a place?   
+  utter_ask_name:
+  - text: your name please?
+  utter_ask_email:
+  - text: your email please?
+  utter_slots_values:
+  - text: "these are your details\n
+            - name: {name}\n
+            - email: {email}\n
+            - location :{location}\n
+            - pincode:{pincode}\n
+            - intent: {buy_property}\n
+            
+            our agent will get back to you ."
+
+         
+            
+
+actions:
+- utter_greet
+- utter_did_that_help
+- utter_happy
+- utter_goodbye
+- utter_iamabot
+- utter_ask_location
+- utter_ask_pincode
+- get_pincode
+- utter_ask_name
+- utter_ask_email
+- utter_slots_values
+- utter_budget
+- utter_days
+- utter_sell
+- utter_days_sell
+- action_check_restaurants
+- utter_buy
+- utter_sell_budget
+- utter_ask_location_sell
+- action_send_listing
+
+
+
+
+entities:
+- location
+- pincode
+- name
+- email
+- budget
+- budget_sell
+- buy_property
+- sell_property
+  
+slots:
+  location:
+    type: unfeaturized
+  pincode:
+    type: unfeaturized
+  name:
+    type: text
+  email:
+    type: text
+  budget:
+    type: float 
+  budget_sell:
+    type: float
+  buy_property:
+    type: unfeaturized
+  sell_property:
+    type: unfeaturized
+     
+ 
